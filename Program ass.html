@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>CC Sneaker Store</title>
+  <center><h1> <b> CC Sneaker Store </b>  </h1>
+<script>
+    var priceShoe1 = 165
+    var priceShoe2 = 150
+    var priceShoe3 = 165
+    var priceShoe4 = 140
+    var priceShoe5 = 170
+    var discount = 1 
+    var shipcost = 0
+
+    function checkAllNumShoes() {
+      var totalNumShoes = 0
+
+      var numShoes1 = parseInt(document.getElementById("NumShoes1").value) 
+      var numShoes2 = parseInt(document.getElementById("NumShoes2").value) 
+      var numShoes3 = parseInt(document.getElementById("NumShoes3").value) 
+      var numShoes4 = parseInt(document.getElementById("NumShoes4").value) 
+      var numShoes5 = parseInt(document.getElementById("NumShoes5").value) 
+
+      if (numShoes1 > 10 || numShoes1 < 0) {
+        alert("Number must be between 0 and 10 for the 574 Core")
+      } else {
+        totalNumShoes = numShoes1 + totalNumShoes
+      }
+
+      if (numShoes2 > 10 || numShoes2 < 0) {
+        alert("Number must be between 0 and 10 for 991v2")
+      } else {
+        totalNumShoes = numShoes2 + totalNumShoes
+      }
+
+      if (numShoes3 > 10 || numShoes3 < 0) {
+        alert("Number must be between 0 and 10 for the 1906 Utility")
+      } else {
+        totalNumShoes = numShoes3 + totalNumShoes
+      }
+
+      if (numShoes4 > 10 || numShoes4 < 0) {
+        alert("Number must be between 0 and 10 for the NB 327")
+      } else {
+        totalNumShoes = numShoes4 + totalNumShoes
+      }
+
+      if (numShoes5 > 10 || numShoes5 < 0) {
+        alert("Number must be between 0 and 10 for the NB 530")
+      } else {
+        totalNumShoes = numShoes5 + totalNumShoes
+      }
+
+      alert("You have added a total of " + totalNumShoes + " items to the cart.")
+    }
+</script>
+<script>
+    var tries = 0
+    var discountApplied = 0 
+
+    function applyDiscount() {
+      if (tries >= 3) {
+        alert("No more attempts left. No discount applied.")
+        return
+      }
+
+      var password = prompt("Enter the discount password:")
+      tries = tries + 1
+
+      if (password == "UAC123") {
+        discountApplied = 1
+        discount = 0.9
+        alert("Correct password! A 10% discount has been applied.")
+      } else {
+        alert("Incorrect password. Try again.")
+      if (tries < 3) {
+          applyDiscount()
+        } else {
+          alert("No more attempts left. No discount applied.")
+        }
+      }
+    }
+</script>
+<script>
+    function shippingCost() {
+      var shipping = document.getElementById("shipping").value
+      if (shipping == "express") {
+        shipcost = 20
+      } else {
+        shipcost = 0
+      }
+      alert("Shipping method has been chosen")
+    }
+</script>
+<script>
+    function totalPurchase() {
+      var numShoes1 = parseInt(document.getElementById("NumShoes1").value) 
+      var numShoes2 = parseInt(document.getElementById("NumShoes2").value) 
+      var numShoes3 = parseInt(document.getElementById("NumShoes3").value)
+      var numShoes4 = parseInt(document.getElementById("NumShoes4").value) 
+      var numShoes5 = parseInt(document.getElementById("NumShoes5").value)       
+      var totalprice = (numShoes1*priceShoe1 + numShoes2*priceShoe2 + numShoes3*priceShoe3 + numShoes4*priceShoe4 + numShoes5*priceShoe5) * discount + shipcost
+      alert("The total price of your purchase is: $" + totalprice)
+    }
+</script>
+</head>
+<body bgcolor="#f2f1ef">
+  <center>
+  <form>
+    <i><p>Step Bold, Stand Out</i>
+    <font size="+2">
+      <p>Here you can find the best products for your needs!</p>
+    </font>
+    </center>
+    <center>
+      <hr width="100%">
+      <font size="+3">
+        <p><b>CHECK OUT</b></p>
+      </font>
+      <table>
+        <tr>
+          <td><img src="images/574.png" width="350"></td>
+          <td><img src="images/991.png" width="350"></td>
+          <td><img src="images/1906.png" width="350"></td>
+          <td><img src="images/327.png" width="350"></td>
+          <td><img src="images/530.png" width="350"></td>
+        </tr>
+        <tr>
+          <td><center>574 Core</center></td>
+          <td><center>Made in UK 991v2</center></td>
+          <td><center>1906 Utility</center></td>
+          <td><center>NB 327</center></td>
+          <td><center>NB 530</center></td>
+        </tr>
+        <tr>
+          <td><center>Price: $165</center></td>
+          <td><center>Price: $150</center></td>
+          <td><center>Price: $165</center></td>
+          <td><center>Price: $140</center></td>
+          <td><center>Price: $170</center></td>
+        </tr>
+        <tr>
+          <td><center><input type="text" id="NumShoes1" value="0"></center></td>
+          <td><center><input type="text" id="NumShoes2" value="0"></center></td>
+          <td><center><input type="text" id="NumShoes3" value="0"></center></td> 
+          <td><center><input type="text" id="NumShoes4" value="0"></center></td>
+          <td><center><input type="text" id="NumShoes5" value="0"></center></td>
+        </tr>
+        
+      </table>
+        <tr>
+          <td><center><input type="button" value="Add all to cart" onclick="checkAllNumShoes()"></center></td>
+        </tr>
+      <table>
+      
+      </table>
+      <hr width="100%">
+      
+        <b><big><font size="6">Discount and Shipping</font></big></b> <br>
+        <button type="button" onClick="applyDiscount()">Enter Password for Discount</button>      
+        <br>
+        <br>        
+        <b><big><font size="5">Shipping method</font></big></b><br>
+        <select id="shipping" onchange="shippingCost()">
+            <option value="">Choose your shipping method</option>
+            <option value="standard">Standard: 3-6 business days</option>
+            <option value="express">Express: 2 business days, extra $20</option>
+        </select> 
+        <br>
+        <br>   
+        <input type="button" value="Calculate the total price" onclick="totalPurchase()">
+        <hr width="70%">
+            <p><img src=images/social_modified.png>
+            <p>Shop
+            <p>About us
+            <p>For you
+    </center>    
+  </form>
+</body>
+</html>
